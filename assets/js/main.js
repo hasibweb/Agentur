@@ -77,7 +77,7 @@
     // ========================== Scroll Spy ==========================    
     function scrollSpy() {
         var scrollLink = $('#cd-navbar .nav-link');
-        var space = $('.cd-header').outerHeight();
+        var space = 80;
         var topPos = $(window).scrollTop();
 
         scrollLink.each(function () {
@@ -85,7 +85,7 @@
 
             // This Line Immportant for Console Error
             if (sec.length) {
-                var secPos = sec.offset().top - (space + 80);
+                var secPos = sec.offset().top - space;
             }
             // Add Active Class
             if (secPos <= topPos) {

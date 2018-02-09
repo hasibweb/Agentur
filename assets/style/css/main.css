@@ -545,6 +545,8 @@ textarea:focus {
     .our-work .item:hover .item-text {
       visibility: visible;
       opacity: 1; }
+  .our-work .more-btn {
+    margin-top: 25px; }
 
 /*======================================================
                     Testimonials

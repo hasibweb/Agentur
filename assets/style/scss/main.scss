@@ -570,7 +570,9 @@ textarea:focus,
     .item-text {
         @extend .text-hover;
     }
-    .more-btn {}
+    .more-btn {
+        margin-top: 25px;
+    }
 }
 
 /*======================================================
