@@ -77,13 +77,19 @@
     // ========================== Scroll Spy ==========================    
     function scrollSpy() {
         var scrollLink = $('#cd-navbar .nav-link');
-        var space = 77;
+        var space = $('.cd-header').outerHeight();
         var topPos = $(window).scrollTop();
 
-        scrollLink.each(function (link) {
-            var sectionPos = $(link.hash).offset().top - space;
-            if (sectionPos <= topPos) {
-                $(this).parent().addClass('active').siblings().removeClass('active').css('color', '#fff');
+        scrollLink.each(function () {
+            var sec = $(this.hash);
+
+            // This Line Immportant for Console Error
+            if (sec.length) {
+                var secPos = sec.offset().top - (space + 80);
+            }
+            // Add Active Class
+            if (secPos <= topPos) {
+                $(this).parent().addClass('active').siblings().removeClass('active');
             }
         })
     }
