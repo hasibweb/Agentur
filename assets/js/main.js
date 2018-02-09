@@ -80,8 +80,8 @@
         var space = 77;
         var topPos = $(window).scrollTop();
 
-        scrollLink.each(function () {
-            var sectionPos = $(this.hash).offset().top - space;
+        scrollLink.each(function (link) {
+            var sectionPos = $(link.hash).offset().top - space;
             if (sectionPos <= topPos) {
                 $(this).parent().addClass('active').siblings().removeClass('active').css('color', '#fff');
             }

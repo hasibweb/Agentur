@@ -547,6 +547,16 @@ textarea:focus {
       opacity: 1; }
 
 /*======================================================
+                    Testimonials
+/*====================================================*/
+.cd-testimonials {
+  padding: 55px 0; }
+  .cd-testimonials .client-list li {
+    display: inline-block; }
+    .cd-testimonials .client-list li:not(:last-child) {
+      margin-right: 25px; }
+
+/*======================================================
                     Blank
 /*====================================================*/
 
