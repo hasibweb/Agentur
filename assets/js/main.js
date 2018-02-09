@@ -37,6 +37,7 @@
     // Window Scroll Function
     $(window).on('scroll', function () {
         stickyNav();
+        scrollSpy();
     });
 
     // ========================== Preloader Setup ==========================
@@ -73,7 +74,21 @@
 
 
     } // nav controll
-    // ========================== Navbar Controll ==========================    
+    // ========================== Scroll Spy ==========================    
+    function scrollSpy() {
+        var scrollLink = $('#cd-navbar .nav-link');
+        var space = 77;
+        var topPos = $(window).scrollTop();
+
+        scrollLink.each(function () {
+            var sectionPos = $(this.hash).offset().top - space;
+            if (sectionPos <= topPos) {
+                $(this).parent().addClass('active').siblings().removeClass('active').css('color', '#fff');
+            }
+        })
+    }
+
+    // ========================== Sticky Nav ==========================    
     function stickyNav() {
         // Scroll on Fixed position Height
         var posTop = $(window).scrollTop();
@@ -84,6 +99,7 @@
         } else {
             nav.removeClass('sticky-nav');
         }
+
     } // Sticky nav
 
     // ========================== Hero Slider ==========================
