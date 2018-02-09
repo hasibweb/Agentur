@@ -1,0 +1,552 @@
+/*
+    Name: Name
+    Version: 1.0
+    Author: Hasibur Rahman
+    Email: hasibonline2@gmail.com
+*/
+
+/*===================== Table Of Content ===========================
+>> Variables (scss avilable)
+>> Mixins (scss avilable)
+1. Imports
+2. Global Style
+3. Helper Class
+4. Blank
+
+/*===============================================================*/
+
+/////////////////////////////////////////////////////
+////////////////////// Variables ////////////////////
+/////////////////////////////////////////////////////
+//Text font
+$text-font: 'Raleway',
+Arial,
+sans-serif;
+//Title font
+$title-font: 'Poppins',
+Arial,
+sans-serif;
+/////////////// Regular colors ///////////////////
+/// Text color
+$text-color: #777777;
+//Primary color
+$primary-color: #02d871;
+/// Main brand color
+$title-color: #333;
+/// Light grey
+// Image Loc
+$dir: '../css/';
+$img: '../../img/';
+// Spacing
+$sec-pad: 50px 0;
+// Radius
+$btn-radius: 35px;
+//////////////////////////////////////////////////
+////////////////////// Mixins ////////////////////
+//////////////////////////////////////////////////
+/// SCSS Media Quries
+@mixin media($screen) {
+    @if $screen=="tiny" {
+        @media screen and (min-width: 480px) and (max-width: 767px) {
+            @content;
+        }
+    }
+    @if $screen=="small" {
+        @media screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    @if $screen=="medium" {
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+    @if $screen=="large" {
+        @media screen and (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    }
+    @if $screen=="Xlarge" {
+        @media screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+/*======================================================
+                    Imports
+/*====================================================*/
+
+// Fonts 
+@import url('https://fonts.googleapis.com/css?family=Poppins|Raleway:300,300i,400,400i,500,500i,600,600i,700');
+// External
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url($dir + "external/animate.min.css");
+@import url($dir + "external/owl.carousel.min.css");
+@import url($dir + "external/aos.css");
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
+// SCSS
+@import 'partials/hover/hover';
+/*======================================================
+                    Global Style
+/*====================================================*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $text-font;
+    font-size: 15px;
+    color: $text-color;
+    line-height: 26px;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a:focus {
+    box-shadow: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 65px;
+}
+
+h2 {
+    font-size: 36px;
+    font-family: $title-font;
+}
+
+h3 {
+    font-size: 26px;
+    font-family: $title-font;
+}
+
+h4 {
+    font-size: 20px;
+    font-family: $title-font;
+}
+
+h5 {
+    font-size: 18px;
+    font-family: $title-font;
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: $title-font;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+    border: 0;
+    box-shadow: none !important;
+}
+
+input,
+textarea {
+    border: 1px solid $primary-color;
+}
+
+input:focus,
+textarea:focus,
+    {
+    outline: 0;
+}
+
+/*======================================================
+                    Helper Class
+/*====================================================*/
+
+.posMid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.posMidY {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.posMidX {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.flexMid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexMidY {
+    display: flex;
+    align-items: center;
+}
+
+.flexMidX {
+    display: flex;
+    justify-content: center;
+}
+
+.fit {
+    width: 100%;
+    height: 100%;
+}
+
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 999999;
+}
+
+/*======================================================
+                    Components
+/*====================================================*/
+
+// Hero Buttons
+.hero-btn {
+    padding: 12px 51px;
+    border-radius: $btn-radius;
+    background: $primary-color;
+    color: #fff;
+    display: inline-block;
+    &:hover {
+        color: #fff;
+    }
+}
+
+// More Button
+.more-btn {
+    padding: 12px 51px;
+    border: 1px solid $primary-color;
+    border-radius: $btn-radius;
+    background: transparent;
+    color: $primary-color;
+    display: inline-block;
+    &:hover {
+        color: #fff;
+        background: $primary-color;
+    }
+}
+
+// Image Clip
+.img-clip {
+    position: absolute;
+    width: 1px;
+    height: 265px;
+    background: $primary-color;
+    @extend .posMidY;
+    right: -33px;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 116px;
+        height: 1px;
+        top: 0;
+        right: 0;
+        background: $primary-color;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 116px;
+        height: 1px;
+        bottom: 0;
+        right: 0;
+        background: $primary-color;
+    }
+}
+
+// Line Arrow
+.line-arrow {
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        @extend .posMidX;
+        background: $primary-color;
+        width: 50px;
+        height: 3px;
+        box-shadow: 0px 5px 34px 0px $primary-color;
+    }
+}
+
+// Portfolio Hover Effect
+.hvr-curl-bottom-right:hover:before,
+.hvr-curl-bottom-right:focus:before,
+.hvr-curl-bottom-right:active:before {
+    width: 50px;
+    height: 50px;
+}
+
+.text-hover {
+    background: $primary-color;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    @extend .posMid;
+    @extend .flexMid;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        bottom: 0;
+        right: 0;
+        transform: rotate(45deg) translate(75%, 0%);
+    }
+    &:hover {
+        p {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        h3 {
+            opacity: 1;
+            &::before {
+                transform: translateY(0) translateX(-50%);
+            }
+        }
+    } //Hover
+    p {
+        transform: translateY(-15px);
+        transition: .3s ease-in-out;
+        opacity: 0;
+    }
+    h3 {
+        position: relative;
+        padding-bottom: 30px;
+        @extend .line-arrow;
+        transition: .3s ease-in-out;
+        opacity: 0;
+        &::before {
+            background: #8febbf;
+            transform: translateY(15px) translateX(-50%);
+            transition: .3s ease-in-out;
+        }
+    }
+}
+
+/*======================================================
+                    Header
+/*====================================================*/
+
+.cd-header {
+    .navbar {
+        .nav-item.active .nav-link {
+            color: $primary-color;
+            font-weight: 600;
+        }
+        .nav-link {
+            color: #fff;
+            padding: 15px 22px;
+            font-weight: 500;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+        &.sticky-nav {
+            height: 75px;
+            transition: .4s ease-in-out;
+            background: darken($primary-color, 12%);
+            .navbar-brand img {
+                width: 90%;
+                transition: .2s ease-in-out;
+            }
+        }
+    }
+}
+
+/*======================================================
+                    Hero
+/*====================================================*/
+
+.cd-hero {
+    .slide-item {
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        height: 100vh;
+        position: relative;
+        border-bottom: 1px solid #acadaf;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .slider-text {
+            padding-top: 32vh;
+            color: #FFF;
+            position: relative;
+            height: 100%;
+            z-index: 3;
+            h1 {
+                font-size: 4.4vw;
+                font-weight: bold;
+                position: relative;
+                .line-arrow-top {
+                    @extend .line-arrow;
+                    &:before {
+                        top: -25px;
+                        left: 28px;
+                    }
+                }
+                span {
+                    display: block;
+                }
+            }
+            p {
+                font-size: 18px;
+                color: #a3a3a3;
+                margin: 24px 0 50px;
+            }
+        }
+    }
+}
+
+/*======================================================
+                    About
+/*====================================================*/
+
+.cd-about {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    padding: 134px 0;
+    .person-img {
+        box-shadow: 0px 12px 60px 0px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+    .about-text {
+        h2 {
+            color: #333333;
+            margin-bottom: 25px;
+            font-weight: bold;
+            span {
+                display: block;
+            }
+        }
+        .list-group {
+            margin-bottom: 15px;
+            a {
+                color: $primary-color;
+                padding: 10px 20px;
+                display: inline-block;
+                font-weight: bold;
+                &:first-child {
+                    padding-left: 0;
+                }
+            }
+        }
+        .hero-btn {
+            box-shadow: 0px 7px 60px 0px rgba(0, 0, 0, 0.25);
+            margin-top: 25px;
+        }
+    }
+}
+
+/*======================================================
+                    Services
+/*====================================================*/
+
+.cd-services {
+    padding: 100px 0;
+    .col-block {
+        padding: 50px;
+        &.active {
+            color: #fff;
+            background: $primary-color;
+            border-radius: 10px;
+            box-shadow: 0px 7px 60px 0px rgba(0, 0, 0, 0.25);
+            h3::before {
+                background: #fff;
+            }
+        }
+        h3 {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            margin-top: 10px;
+            position: relative;
+            @extend .line-arrow;
+        }
+    }
+}
+
+/*======================================================
+                    Our Work
+/*====================================================*/
+
+.our-work {
+    padding: 50px 0;
+    background-repeat: no-repeat;
+    background-position: center right;
+    .sec-title {
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+        position: relative;
+        @extend .line-arrow;
+    }
+    .item {
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        &:hover {
+            .item-text {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    } // Item Text
+    .item-text {
+        @extend .text-hover;
+    }
+    .more-btn {}
+}
+
+/*======================================================
+                    Blank
+/*====================================================*/
