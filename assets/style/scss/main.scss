@@ -250,6 +250,28 @@ textarea:focus,
     }
 }
 
+// Hero Dots
+.hero-slider {
+    .owl-dots {
+        position: absolute;
+        @extend .posMidY;
+        right: 10vw;
+        .owl-dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 50%;
+            margin-bottom: 10px;
+            &:hover {
+                background: $primary-color;
+            }
+            &.active {
+                background: #fff;
+            }
+        }
+    }
+}
+
 // More Button
 .more-btn {
     padding: 12px 51px;
@@ -477,6 +499,10 @@ textarea:focus,
                 padding: 10px 20px;
                 display: inline-block;
                 font-weight: bold;
+                &.active {
+                    font-size: 120%;
+                    transition: all .2s ease-in-out;
+                }
                 &:first-child {
                     padding-left: 0;
                 }

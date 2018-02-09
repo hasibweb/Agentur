@@ -230,7 +230,7 @@ textarea:focus {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
-.posMidY, .img-clip {
+.posMidY, .hero-slider .owl-dots, .img-clip {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -293,6 +293,20 @@ textarea:focus {
   display: inline-block; }
   .hero-btn:hover {
     color: #fff; }
+
+.hero-slider .owl-dots {
+  position: absolute;
+  right: 10vw; }
+  .hero-slider .owl-dots .owl-dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    margin-bottom: 10px; }
+    .hero-slider .owl-dots .owl-dot:hover {
+      background: #02d871; }
+    .hero-slider .owl-dots .owl-dot.active {
+      background: #fff; }
 
 .more-btn {
   padding: 12px 51px;
@@ -481,6 +495,10 @@ textarea:focus {
       padding: 10px 20px;
       display: inline-block;
       font-weight: bold; }
+      .cd-about .about-text .list-group a.active {
+        font-size: 120%;
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out; }
       .cd-about .about-text .list-group a:first-child {
         padding-left: 0; }
   .cd-about .about-text .hero-btn {

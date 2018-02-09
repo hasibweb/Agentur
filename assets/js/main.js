@@ -26,6 +26,7 @@
     // Document Ready Function
     $(document).ready(function () {
         navbarControll();
+        onTheFly();
     });
 
     // Window Resize Function
@@ -49,14 +50,28 @@
     function navbarControll() {
         // One page Nav
         var scrollLink = $('#cd-navbar .nav-link');
+        var heroBtn = $('.hero-btn.hash');
         var space = 75;
-        scrollLink.on('click', function (event) {
-            $(this).parent('li').addClass('active').siblings().removeClass('active');
+
+        function scrollAnim(link, dur) {
             $('html, body').animate({
-                scrollTop: $(this.hash).offset().top - space
-            }, 1010, "easeOutBack")
+                scrollTop: $(link.hash).offset().top - space
+            }, dur, "easeOutBack")
+        }
+
+        scrollLink.on('click', function (event) {
             event.preventDefault();
+            $(this).parent('li').addClass('active').siblings().removeClass('active');
+            scrollAnim(this, 1010);
+
         })
+
+        heroBtn.on('click', function (event) {
+            event.preventDefault();
+            scrollAnim(this, 1100);
+        })
+
+
     } // nav controll
     // ========================== Navbar Controll ==========================    
     function stickyNav() {
@@ -85,7 +100,7 @@
             items: 1,
             mouseDrag: false,
             animateOut: 'fadeOutDown',
-            animateIn: 'bounceInUp',
+            animateIn: 'fadeInUp',
             onTranslate: translateAnim,
             onTranslated: translatedAnim
         })
@@ -137,5 +152,48 @@
         });
     }
 
+    function onTheFly() {
+        // Show more Button
+        var btn = $('#show_more');
+        // Click count
+        var point = 0;
+        // Columns
+        var col = $('.hide-col');
+        var col1 = $('.hide-column-1');
+        var col2 = $('.hide-column-2');
+
+        // Column Array
+        var columns = [col1, col2];
+
+        // Hide Column Globaly
+        col.hide();
+
+        // Show column on button Click
+        btn.on('click', function (event) {
+            event.preventDefault();
+            point++;
+
+            switch (point) {
+                case 1:
+                    col1.show();
+                    break;
+                case 2:
+                    col2.show();
+
+                    $(btn).html('Show Less');
+                    break;
+
+                default:
+                    col.hide();
+                    $(btn).html('Browse More');
+                    break;
+            }
+
+            if (point > columns.length) {
+                point = 0;
+            }
+        })
+
+    }
 
 })(jQuery); // End of use strict
