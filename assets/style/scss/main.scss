@@ -581,9 +581,9 @@ textarea:focus,
 
 .cd-testimonials {
     padding: 55px 0;
-    .client-list {
+    .author-list {
+        display: flex;
         li {
-            display: inline-block;
             &:not(:last-child) {
                 margin-right: 25px;
             }

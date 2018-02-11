@@ -553,9 +553,11 @@ textarea:focus {
 /*====================================================*/
 .cd-testimonials {
   padding: 55px 0; }
-  .cd-testimonials .client-list li {
-    display: inline-block; }
-    .cd-testimonials .client-list li:not(:last-child) {
+  .cd-testimonials .author-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .cd-testimonials .author-list li:not(:last-child) {
       margin-right: 25px; }
 
 /*======================================================
