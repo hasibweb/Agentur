@@ -81,11 +81,11 @@
         var topPos = $(window).scrollTop();
 
         scrollLink.each(function () {
-            var sec = $(this.hash);
+            var section = $(this.hash);
 
             // This Line Immportant for Console Error
-            if (sec.length) {
-                var secPos = sec.offset().top - space;
+            if (section.length) {
+                var secPos = section.offset().top - space;
             }
             // Add Active Class
             if (secPos <= topPos) {
@@ -174,9 +174,12 @@
         });
     }
 
+    // ========================== Add Content On the fly ==========================
     function onTheFly() {
         // Show more Button
         var btn = $('#show_more');
+        var btnText = btn.text();
+
         // Click count
         var point = 0;
         // Columns
@@ -207,7 +210,7 @@
 
                 default:
                     col.hide();
-                    $(btn).html('Browse More');
+                    $(btn).html(btnText);
                     break;
             }
 
@@ -217,5 +220,6 @@
         })
 
     }
+
 
 })(jQuery); // End of use strict

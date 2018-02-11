@@ -25,6 +25,25 @@
 /*======================================================
                     Hover Efffects
 /*====================================================*/
+/* Grow */
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform; }
+  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
+
 /* Shutter Out Horizontal */
 .hvr-shutter-out-horizontal {
   display: inline-block;
@@ -230,13 +249,13 @@ textarea:focus {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
-.posMidY, .hero-slider .owl-dots, .img-clip {
+.posMidY, .hero-slider .owl-dots, .img-clip, .cd-testimonials .brand-logos .brand-logo:not(:nth-child(3n))::before {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
 
-.posMidX, .line-arrow::before, .text-hover h3::before, .our-work .item-text h3::before, .cd-hero .slide-item .slider-text h1 .line-arrow-top::before, .cd-services .col-block h3::before, .our-work .sec-title::before {
+.posMidX, .line-arrow::before, .sec-title::before, .text-hover h3::before, .our-work .item-text h3::before, .cd-hero .slide-item .slider-text h1 .line-arrow-top::before, .cd-services .col-block h3::before, .cd-testimonials .brand-logos .brand-logo:not(:nth-last-child(-n+3))::after {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -285,6 +304,25 @@ textarea:focus {
 /*======================================================
                     Components
 /*====================================================*/
+.test-bg {
+  position: absolute;
+  width: 50vw;
+  background: url("../../img/ts-bg.jpg") no-repeat center center;
+  height: 75%;
+  top: 0;
+  left: 0;
+  overflow: hidden; }
+  .test-bg::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    top: 0;
+    right: 0;
+    -webkit-transform: rotate(45deg) translate(0%, -73%);
+            transform: rotate(45deg) translate(0%, -73%); }
+
 .hero-btn {
   padding: 12px 51px;
   border-radius: 35px;
@@ -319,6 +357,11 @@ textarea:focus {
     color: #fff;
     background: #02d871; }
 
+.sec-title {
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  position: relative; }
+
 .img-clip {
   position: absolute;
   width: 1px;
@@ -342,7 +385,7 @@ textarea:focus {
     right: 0;
     background: #02d871; }
 
-.line-arrow::before, .text-hover h3::before, .our-work .item-text h3::before, .cd-hero .slide-item .slider-text h1 .line-arrow-top::before, .cd-services .col-block h3::before, .our-work .sec-title::before {
+.line-arrow::before, .sec-title::before, .text-hover h3::before, .our-work .item-text h3::before, .cd-hero .slide-item .slider-text h1 .line-arrow-top::before, .cd-services .col-block h3::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -408,6 +451,14 @@ textarea:focus {
               transform: translateY(15px) translateX(-50%);
       -webkit-transition: .3s ease-in-out;
       transition: .3s ease-in-out; }
+
+/*======================================================
+                    Customize
+/*====================================================*/
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  border: 0;
+  background: transparent; }
 
 /*======================================================
                     Header
@@ -534,10 +585,6 @@ textarea:focus {
   padding: 50px 0;
   background-repeat: no-repeat;
   background-position: center right; }
-  .our-work .sec-title {
-    padding-bottom: 30px;
-    margin-bottom: 50px;
-    position: relative; }
   .our-work .item {
     margin-bottom: 30px;
     position: relative;
@@ -552,13 +599,94 @@ textarea:focus {
                     Testimonials
 /*====================================================*/
 .cd-testimonials {
-  padding: 55px 0; }
-  .cd-testimonials .author-list {
+  padding: 50px 0;
+  margin: 50px 0 0;
+  position: relative;
+  /* Brand Logos */ }
+  .cd-testimonials .sec-title::before {
+    left: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  .cd-testimonials .nav-tabs {
+    border-bottom: 0; }
+    .cd-testimonials .nav-tabs .nav-link {
+      position: relative; }
+      .cd-testimonials .nav-tabs .nav-link img {
+        border-radius: 50%;
+        overflow: hidden; }
+      .cd-testimonials .nav-tabs .nav-link:before {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: #02d871;
+        bottom: -80px;
+        left: 35px;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        opacity: 0; }
+      .cd-testimonials .nav-tabs .nav-link.active {
+        -webkit-transition: all 5s ease;
+        transition: all 5s ease; }
+        .cd-testimonials .nav-tabs .nav-link.active img {
+          border: 3px solid #fff; }
+        .cd-testimonials .nav-tabs .nav-link.active:before {
+          opacity: 1;
+          -webkit-transition: .2s ease-in;
+          transition: .2s ease-in;
+          -webkit-transition-delay: .2s;
+                  transition-delay: .2s; }
+      .cd-testimonials .nav-tabs .nav-link:hover {
+        border-bottom: 0; }
+  .cd-testimonials .tab-content {
+    margin-top: 50px; }
+    .cd-testimonials .tab-content .card {
+      border: 0;
+      border-radius: 0;
+      background: #02d871;
+      color: #fff;
+      width: 95%;
+      font-family: "Poppins", Arial, sans-serif; }
+      .cd-testimonials .tab-content .card .card-body {
+        padding: 40px; }
+        .cd-testimonials .tab-content .card .card-body P {
+          font-size: 17px;
+          line-height: 32px; }
+        .cd-testimonials .tab-content .card .card-body .blockquote-footer {
+          font-weight: bold;
+          color: #fff;
+          margin-top: 1em; }
+      .cd-testimonials .tab-content .card .quote-img {
+        margin-bottom: 25px; }
+  .cd-testimonials .brand-logos .brand-logo {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 30px;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
-    .cd-testimonials .author-list li:not(:last-child) {
-      margin-right: 25px; }
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    /* Before */
+    /* After */ }
+    .cd-testimonials .brand-logos .brand-logo:not(:nth-child(3n))::before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 60%;
+      background: #ebeef0;
+      right: 0; }
+    .cd-testimonials .brand-logos .brand-logo:not(:nth-last-child(-n+3))::after {
+      content: '';
+      position: absolute;
+      width: 75%;
+      height: 1px;
+      background: #ebeef0;
+      bottom: 0; }
 
 /*======================================================
                     Blank

@@ -33,6 +33,7 @@ $text-color: #777777;
 $primary-color: #02d871;
 /// Main brand color
 $title-color: #333;
+$gray: #ebeef0;
 /// Light grey
 // Image Loc
 $dir: '../css/';
@@ -238,6 +239,27 @@ textarea:focus,
                     Components
 /*====================================================*/
 
+// Testimonials Background
+.test-bg {
+    position: absolute;
+    width: 50vw;
+    background: url("../../img/ts-bg.jpg") no-repeat center center;
+    height: 75%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        top: 0;
+        right: 0;
+        transform: rotate(45deg) translate(0%, -73%);
+    }
+}
+
 // Hero Buttons
 .hero-btn {
     padding: 12px 51px;
@@ -284,6 +306,13 @@ textarea:focus,
         color: #fff;
         background: $primary-color;
     }
+}
+
+.sec-title {
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    position: relative;
+    @extend .line-arrow;
 }
 
 // Image Clip
@@ -386,6 +415,16 @@ textarea:focus,
             transition: .3s ease-in-out;
         }
     }
+}
+
+/*======================================================
+                    Customize
+/*====================================================*/
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    border: 0;
+    background: transparent;
 }
 
 /*======================================================
@@ -550,12 +589,6 @@ textarea:focus,
     padding: 50px 0;
     background-repeat: no-repeat;
     background-position: center right;
-    .sec-title {
-        padding-bottom: 30px;
-        margin-bottom: 50px;
-        position: relative;
-        @extend .line-arrow;
-    }
     .item {
         margin-bottom: 30px;
         position: relative;
@@ -580,12 +613,105 @@ textarea:focus,
 /*====================================================*/
 
 .cd-testimonials {
-    padding: 55px 0;
-    .author-list {
-        display: flex;
-        li {
-            &:not(:last-child) {
-                margin-right: 25px;
+    padding: 50px 0;
+    margin: 50px 0 0;
+    position: relative;
+    .sec-title {
+        &::before {
+            left: 0;
+            transform: translateX(0);
+        }
+    }
+    .nav-tabs {
+        border-bottom: 0;
+        .nav-link {
+            position: relative;
+            img {
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                background: $primary-color;
+                bottom: -80px;
+                left: 35px;
+                transform: rotate(45deg);
+                opacity: 0;
+            }
+            &.active {
+                transition: all 5s ease;
+                img {
+                    border: 3px solid #fff;
+                }
+                &:before {
+                    opacity: 1;
+                    transition: .2s ease-in;
+                    transition-delay: .2s;
+                }
+            }
+            &:hover {
+                border-bottom: 0;
+            }
+        }
+    }
+    .tab-content {
+        // Tab Content
+        margin-top: 50px;
+        .card {
+            border: 0;
+            border-radius: 0;
+            background: $primary-color;
+            color: #fff;
+            width: 95%;
+            font-family: $title-font;
+            .card-body {
+                padding: 40px;
+                P {
+                    font-size: 17px;
+                    line-height: 32px;
+                }
+                .blockquote-footer {
+                    font-weight: bold;
+                    color: #fff;
+                    margin-top: 1em;
+                }
+            }
+            .quote-img {
+                margin-bottom: 25px;
+            }
+        }
+    }
+    /* Brand Logos */
+    .brand-logos {
+        .brand-logo {
+            position: relative;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Before */
+            &:not(:nth-child(3n))::before {
+                content: '';
+                position: absolute;
+                width: 1px;
+                height: 60%;
+                background: $gray;
+                right: 0;
+                @extend .posMidY;
+            }
+            /* After */
+            &:not(:nth-last-child(-n+3))::after {
+                content: '';
+                position: absolute;
+                width: 75%;
+                height: 1px;
+                background: $gray;
+                bottom: 0;
+                @extend .posMidX;
             }
         }
     }

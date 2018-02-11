@@ -6,12 +6,13 @@
 @import "mixins";
 @import "hacks";
 // /* 2D TRANSITIONS */
-// @import "effects/2d-transitions/grow";
-// @if $includeClasses {
-// 	.#{$nameSpace}-grow {
-// 		@include grow();
-// 	}
-// }
+@import "effects/2d-transitions/grow";
+@if $includeClasses {
+	.#{$nameSpace}-grow {
+		@include grow();
+	}
+}
+
 // @import "effects/2d-transitions/shrink";
 // @if $includeClasses {
 // 	.#{$nameSpace}-shrink {
