@@ -407,12 +407,13 @@
 // 		@include shadow();
 // 	}
 // }
-// @import "effects/shadow-and-glow-transitions/grow-shadow";
-// @if $includeClasses {
-// 	.#{$nameSpace}-grow-shadow {
-// 		@include grow-shadow();
-// 	}
-// }
+@import "effects/shadow-and-glow-transitions/grow-shadow";
+@if $includeClasses {
+	.#{$nameSpace}-grow-shadow {
+		@include grow-shadow();
+	}
+}
+
 // @import "effects/shadow-and-glow-transitions/box-shadow-outset";
 // @if $includeClasses {
 // 	.#{$nameSpace}-box-shadow-outset {
@@ -494,12 +495,13 @@
 // 		@include icon-back();
 // 	}
 // }
-// @import "effects/icons/icon-forward";
-// @if $includeClasses {
-// 	.#{$nameSpace}-icon-forward {
-// 		@include icon-forward();
-// 	}
-// }
+@import "effects/icons/icon-forward";
+@if $includeClasses {
+	.#{$nameSpace}-icon-forward {
+		@include icon-forward();
+	}
+}
+
 // @import "effects/icons/icon-down";
 // @if $includeClasses {
 // 	.#{$nameSpace}-icon-down {

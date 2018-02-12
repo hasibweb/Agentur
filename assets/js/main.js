@@ -116,7 +116,7 @@
         slider.owlCarousel({
             loop: true,
             autoplay: true,
-            autoplayTimeout: 5000,
+            autoplayTimeout: 10300,
             smartSpeed: 1248,
             dots: true,
             items: 1,

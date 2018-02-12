@@ -718,5 +718,157 @@ textarea:focus,
 }
 
 /*======================================================
+                    Our Blogs
+/*====================================================*/
+
+.cd-blogs {
+    padding: 100px 0;
+    .sec-title {
+        &::before {
+            left: 0;
+            transform: translateX(0);
+        }
+    }
+    .blog-overview {
+        p {
+            line-height: 32px;
+        }
+    }
+    /*Card Deck*/
+    .card-deck {
+        .card {
+            border: 0;
+            box-shadow: 0px 6px 90px -3px #ddd;
+            .card-title {
+                font-size: 18px;
+                color: #222;
+            }
+            .card-img-top {
+                width: 100%;
+                border-top-left-radius: calc(1rem - 1px);
+                border-top-right-radius: calc(1rem - 1px);
+            }
+            .card-body {
+                padding: 1.8rem;
+            }
+            .view-btn {
+                color: #222;
+                font-size: 17px;
+                font-weight: 500;
+                &.hvr-icon-forward:before {
+                    content: "\f105";
+                    font-family: FontAwesome;
+                    right: 0em;
+                }
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+/*======================================================
+                    Update News
+/*====================================================*/
+
+.update-news {
+    padding: 100px 0;
+    background: $primary-color url("../../img/newsbg.jpg");
+    color: #fff;
+    text-align: center;
+    h2 {
+        font-size: 36px;
+        line-height: 44px;
+        margin-bottom: 25pxx;
+        font-weight: bold;
+        font-family: $text-font;
+    }
+    .hero-btn {
+        color: $primary-color;
+        background: #fff;
+        box-shadow: 0px 5px 40px 0px #33333373;
+        margin-top: 25px;
+        font-weight: 500;
+        &:hover {
+            color: $primary-color;
+            font-weight: 600;
+        }
+    }
+    .container {
+        &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: $gray;
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+/*======================================================
+                    Break Line
+/*====================================================*/
+
+.break-line {
+    padding: 70px 0 10px;
+    .line {
+        width: 100%;
+        height: 1px;
+        background: #e0e0e0;
+        display: block;
+    }
+}
+
+/*======================================================
+                    Footer
+/*====================================================*/
+
+.cd-footer {
+    text-align: center;
+    padding: 0 0 90px;
+    margin-top: 30px;
+    background: #fff url($img + 'f-map.png') no-repeat bottom center;
+    .pagination {
+        a {
+            color: $text-color;
+            padding: 5px 15px;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+    .icon-group {
+        padding: 20px 0 30px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 1px;
+            background: $gray;
+            bottom: 0;
+            @extend .posMidX;
+        }
+        a {
+            color: $text-color;
+            text-align: center;
+            line-height: 35px;
+            width: 35px;
+            background: $gray;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 15px;
+            &:hover {
+                color: $primary-color;
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+/*======================================================
                     Blank
 /*====================================================*/
