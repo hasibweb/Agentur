@@ -72,6 +72,11 @@ $btn-radius: 35px;
             @content;
         }
     }
+    @if $screen=="menu" {
+        @media screen and (max-width: 992px) {
+            @content;
+        }
+    }
 }
 
 @mixin tabArrow() {
@@ -603,9 +608,6 @@ textarea:focus,
                 background: darken($primary-color, 15%);
             }
         }
-        &:not(:last-child) {
-            border-bottom: 1px solid $gray;
-        }
     }
 }
 
@@ -624,7 +626,7 @@ textarea:focus,
 
 /* Responsive Header */
 
-@include media('small') {
+@include media('menu') {
     #slick_menu {
         display: none;
     }
@@ -1143,6 +1145,24 @@ textarea:focus,
             background: $gray;
             bottom: 0;
             left: 0;
+        }
+    }
+}
+
+/* Update News Responsive */
+
+@include media('small') {
+    .update-news {
+        h2 {
+            font-size: 30px;
+        }
+    }
+}
+
+@include media('medium') {
+    .update-news {
+        h2 {
+            font-size: 30px;
         }
     }
 }

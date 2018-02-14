@@ -630,8 +630,6 @@ textarea:focus {
     padding: 10px 0; }
     .slicknav_nav li a:hover {
       background: #018c49; }
-  .slicknav_nav li:not(:last-child) {
-    border-bottom: 1px solid #ebeef0; }
 
 .slicknav_menu .slicknav_icon-bar {
   width: 2.125em; }
@@ -644,7 +642,7 @@ textarea:focus {
   margin-top: .388em; }
 
 /* Responsive Header */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 992px) {
   #slick_menu {
     display: none; }
 
@@ -1040,6 +1038,13 @@ textarea:focus {
     bottom: 0;
     left: 0; }
 
+/* Update News Responsive */
+@media screen and (max-width: 767px) {
+  .update-news h2 {
+    font-size: 30px; } }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .update-news h2 {
+    font-size: 30px; } }
 /*======================================================
                     Break Line
 /*====================================================*/
