@@ -27,6 +27,7 @@
     $(document).ready(function () {
         navbarControll();
         onTheFly();
+        mobileMenu();
     });
 
     // Window Resize Function
@@ -72,6 +73,9 @@
             scrollAnim(this, 1100);
         })
 
+        scrollLink.on('click', function () {
+            $('#cd-navbar').toggleClass('menu-hide');
+        })
 
     } // nav controll
     // ========================== Scroll Spy ==========================    
@@ -107,6 +111,13 @@
         }
 
     } // Sticky nav
+
+    // =================== mobileMenu ===================
+    function mobileMenu() {
+        $('.m-menu-btn').on('click', function () {
+            $(this).children().toggleClass('active');
+        })
+    }
 
     // ========================== Hero Slider ==========================
     function heroSlider() {

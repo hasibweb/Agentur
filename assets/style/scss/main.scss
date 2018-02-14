@@ -47,7 +47,7 @@ $btn-radius: 35px;
 //////////////////////////////////////////////////
 /// SCSS Media Quries
 @mixin media($screen) {
-    @if $screen=="tiny" {
+    @if $screen=="mobi" {
         @media screen and (min-width: 480px) and (max-width: 767px) {
             @content;
         }
@@ -70,6 +70,45 @@ $btn-radius: 35px;
     @if $screen=="Xlarge" {
         @media screen and (min-width: 1200px) {
             @content;
+        }
+    }
+}
+
+@mixin tabArrow() {
+    &:before {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: $primary-color;
+        bottom: -100px;
+        left: 45%;
+        transform: rotate(45deg) translateX(-50%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    &.active {
+        img {
+            border-color: #fff;
+        }
+        &:before {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: .27s;
+        }
+    }
+    @include media('small') {
+        &::before {
+            width: 40px;
+            height: 40px;
+            bottom: -70px;
+        }
+    }
+    @include media('medium') {
+        &::before {
+            width: 40px;
+            height: 40px;
+            bottom: -70px;
         }
     }
 }
@@ -239,6 +278,67 @@ textarea:focus,
                     Components
 /*====================================================*/
 
+/* ================ Mobile Menu Button ================ */
+
+.m-menu-btn {
+    width: 40px;
+    height: 40px;
+    /*margin-left: 15px;*/
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    position: relative;
+}
+
+.m-menu-btn span {
+    margin-top: 19px;
+    transition: all .3s ease-in;
+}
+
+.m-menu-btn span,
+.m-menu-btn span:before,
+.m-menu-btn span:after {
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background-color: #fff;
+    ;
+    top: 0;
+    left: 0;
+}
+
+.m-menu-btn span:before,
+.m-menu-btn span:after {
+    content: '';
+    transition: all .3s ease-in;
+}
+
+.m-menu-btn span:before {
+    top: 9px;
+}
+
+.m-menu-btn span:after {
+    top: -9px;
+}
+
+.m-menu-btn span.active {
+    background-color: transparent;
+}
+
+.m-menu-btn span.active:before {
+    transform: rotate(45deg);
+    top: 0;
+    background-color: $primary-color;
+}
+
+.m-menu-btn span.active:after {
+    transform: rotate(135deg);
+    top: 0;
+    background-color: $primary-color;
+}
+
+/*.m-menu-btn*/
+
 // Testimonials Background
 .test-bg {
     position: absolute;
@@ -308,11 +408,19 @@ textarea:focus,
     }
 }
 
+/* Section Title */
+
 .sec-title {
     padding-bottom: 30px;
     margin-bottom: 50px;
     position: relative;
     @extend .line-arrow;
+}
+
+@include media('small') {
+    .sec-title {
+        margin-bottom: 30px;
+    }
 }
 
 // Image Clip
@@ -457,6 +565,43 @@ textarea:focus,
     }
 }
 
+/* Responsive Header */
+
+@include media('small') {
+    .navbar-brand {
+        width: 70%;
+        margin-top: 10px;
+    }
+    .navbar-collapse {
+        position: relative;
+        &.menu-hide {
+            .navbar-nav {}
+        }
+        .navbar-nav {
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            text-align: center;
+            background: $primary-color;
+        }
+        .nav-item {
+            .nav-link {
+                color: #fff;
+                &:hover {
+                    color: darken($primary-color, 10%);
+                }
+            }
+            &:not(:last-child) .nav-link {
+                border-bottom: 1px solid $gray;
+            }
+            &.active .nav-link {
+                color: darken($primary-color, 10%) !important;
+            }
+        }
+    }
+}
+
 /*======================================================
                     Hero
 /*====================================================*/
@@ -509,6 +654,40 @@ textarea:focus,
     }
 }
 
+/* Responsive Hero */
+
+@include media('small') {
+    .cd-hero {
+        .slide-item {
+            .slider-text {
+                h1 {
+                    font-size: 8vw;
+                    line-height: 50px;
+                }
+                p {
+                    font-size: 15px;
+                    margin: 15px 0 25px;
+                }
+            }
+        }
+        .hero-slider .owl-dots {
+            right: 5vw;
+        }
+    }
+}
+
+@include media('medium') {
+    .cd-hero {
+        .slide-item {
+            .slider-text {
+                h1 {
+                    font-size: 7vw;
+                }
+            }
+        }
+    }
+}
+
 /*======================================================
                     About
 /*====================================================*/
@@ -554,6 +733,50 @@ textarea:focus,
     }
 }
 
+/* Responsive About us */
+
+@include media('small') {
+    .cd-about {
+        padding: 60px 0;
+        .person-img {}
+        .img-clip {
+            height: 70%;
+            right: -14px;
+            &::before {
+                width: 70px;
+            }
+            &::after {
+                width: 70px;
+            }
+        }
+        .about-text {
+            margin-top: 30px;
+        }
+    }
+}
+
+@include media('medium') {
+    .cd-about {
+        padding: 60px 0;
+        .img-clip {
+            height: 70%;
+            right: -14px;
+            &::before {
+                width: 70px;
+            }
+            &::after {
+                width: 70px;
+            }
+        }
+        .about-text {
+            h2 {
+                margin-bottom: 10px;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
 /*======================================================
                     Services
 /*====================================================*/
@@ -577,6 +800,22 @@ textarea:focus,
             margin-top: 10px;
             position: relative;
             @extend .line-arrow;
+        }
+    }
+}
+
+/* Responsive Services */
+
+@include media('small') {
+    .cd-services {
+        padding: 0px 0;
+    }
+}
+
+@include media('medium') {
+    .cd-services {
+        .col-block {
+            padding: 25px 15px;
         }
     }
 }
@@ -608,6 +847,14 @@ textarea:focus,
     }
 }
 
+/* Responsive Our Work */
+
+@include media('small') {
+    .our-work {
+        padding: 0;
+    }
+}
+
 /*======================================================
                     Testimonials
 /*====================================================*/
@@ -626,31 +873,11 @@ textarea:focus,
         border-bottom: 0;
         .nav-link {
             position: relative;
+            @include tabArrow();
             img {
                 border-radius: 50%;
                 overflow: hidden;
-            }
-            &:before {
-                content: '';
-                position: absolute;
-                width: 50px;
-                height: 50px;
-                background: $primary-color;
-                bottom: -80px;
-                left: 35px;
-                transform: rotate(45deg);
-                opacity: 0;
-            }
-            &.active {
-                transition: all 5s ease;
-                img {
-                    border: 3px solid #fff;
-                }
-                &:before {
-                    opacity: 1;
-                    transition: .2s ease-in;
-                    transition-delay: .2s;
-                }
+                border: 3px solid transparent;
             }
             &:hover {
                 border-bottom: 0;
@@ -717,6 +944,68 @@ textarea:focus,
     }
 }
 
+/* Responsive Testimonials */
+
+@include media('small') {
+    .cd-testimonials {
+        .test-bg {
+            width: 100vw;
+            top: 0;
+            height: 42%;
+            &::before {
+                display: none;
+            }
+        }
+        .nav.nav-tabs {
+            display: flex;
+            flex-wrap: nowrap;
+            .nav-link {
+                padding: 5px;
+            }
+        }
+        .tab-content {
+            margin-top: 30px;
+            margin-bottom: 50px;
+            .card {
+                width: 100%;
+                .card-body {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+@include media('medium') {
+    .cd-testimonials {
+        .test-bg {
+            width: 49vw;
+            top: 0;
+            height: 65%;
+            &::before {
+                display: none;
+            }
+        }
+        .nav.nav-tabs {
+            display: flex;
+            flex-wrap: nowrap;
+            .nav-link {
+                padding: 5px;
+            }
+        }
+        .tab-content {
+            margin-top: 30px;
+            margin-bottom: 50px;
+            .card {
+                width: 100%;
+                .card-body {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
 /*======================================================
                     Our Blogs
 /*====================================================*/
@@ -764,6 +1053,20 @@ textarea:focus,
                     color: $primary-color;
                 }
             }
+        }
+    }
+}
+
+/* Responsive Our Blog */
+
+@include media('small') {
+    .cd-blogs {
+        padding: 0;
+        .sec-title {
+            margin-bottom: 30px;
+        }
+        .update-news h2 {
+            font-size: 10vw;
         }
     }
 }
@@ -822,6 +1125,14 @@ textarea:focus,
     }
 }
 
+/* Responsive Breakline */
+
+@include media('small') {
+    .break-line {
+        padding: 50px 0 0px;
+    }
+}
+
 /*======================================================
                     Footer
 /*====================================================*/
@@ -831,10 +1142,12 @@ textarea:focus,
     padding: 0 0 90px;
     margin-top: 30px;
     background: #fff url($img + 'f-map.png') no-repeat bottom center;
-    .pagination {
+    .breadcrumb {
+        background: transparent;
         a {
             color: $text-color;
             padding: 5px 15px;
+            cursor: pointer;
             &:hover {
                 color: $primary-color;
             }
@@ -864,6 +1177,20 @@ textarea:focus,
             &:hover {
                 color: $primary-color;
                 transform: scale(1.2);
+            }
+        }
+    }
+}
+
+/* Responsive Footer */
+
+@include media('small') {
+    .cd-footer {
+        .breadcrumb {
+            padding: 0;
+            flex-direction: column;
+            .breadcrumb-item+.breadcrumb-item::before {
+                display: none;
             }
         }
     }
