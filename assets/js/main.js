@@ -28,6 +28,7 @@
         navbarControll();
         onTheFly();
         mobileMenu();
+        blogSlider();
     });
 
     // Window Resize Function
@@ -190,6 +191,26 @@
         }
     } // Hero Slider
 
+    // ========================== Blog Slider ==========================
+
+
+    function blogSlider() {
+        var slider = $('.blog-slider');
+        slider.owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 2300,
+            smartSpeed: 1248,
+            dots: false,
+            nav: true,
+            navText: ['<i class = "fa fa-angle-left "></i>', '<i class = "fa fa-angle-right "></i>'],
+            margin: 25,
+            items: 2,
+            mouseDrag: false,
+
+        })
+
+    }
     // ========================== Scroll Animation ==========================
     function scrollAnimation() {
         AOS.init({
