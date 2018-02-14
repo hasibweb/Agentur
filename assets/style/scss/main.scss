@@ -541,19 +541,23 @@ textarea:focus,
 /*====================================================*/
 
 .fixed-header {
-    background: $primary-color;
+    background: transparent;
     padding: 10px;
     position: fixed;
     width: 100%;
     z-index: 99;
     top: 0;
     left: 0;
+    &.sticky-nav {
+        background: darken($primary-color, 5);
+    }
 }
 
 .cd-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 60px;
 }
 
 // Slick Menu
@@ -563,21 +567,59 @@ textarea:focus,
         a {
             color: #fff;
             padding: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        &.active a {
+            color: $primary-color;
+            font-weight: 600;
         }
     }
 }
 
 .slicknav_menu {
     display: none;
+    background: transparent;
+    .slicknav_btn {
+        background: darken($primary-color, 15%);
+    }
 }
 
 .slicknav_nav {
     position: absolute;
-    background: $primary-color;
+    background: darken($primary-color, 10%);
     left: 0;
     top: 100%;
     width: 100vw;
-    text-align: center;
+    text-align: center; // box-shadow: 0px 5px 30px 0px $gray;
+    li {
+        a {
+            color: #fff;
+            padding: 10px 0;
+            &:hover {
+                background: darken($primary-color, 15%);
+            }
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid $gray;
+        }
+    }
+}
+
+.slicknav_menu .slicknav_icon-bar {
+    width: 2.125em;
+}
+
+.slicknav_menu .slicknav_icon {
+    width: 2.125em;
+    height: 1.2em;
+}
+
+.slicknav_btn .slicknav_icon-bar+.slicknav_icon-bar {
+    margin-top: .388em;
 }
 
 /* Responsive Header */

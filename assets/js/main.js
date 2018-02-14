@@ -53,12 +53,12 @@
         // One page Nav
         var scrollLink = $('#slick_menu li a');
         var heroBtn = $('.hero-btn.hash');
-        var space = 75;
+        var space = $('.fixed-header').outerHeight();
 
         function scrollAnim(link, dur) {
             $('html, body').animate({
                 scrollTop: $(link.hash).offset().top - space
-            }, dur, "easeOutBack")
+            }, dur, "easeOutCirc")
         }
 
         scrollLink.on('click', function (event) {
@@ -80,16 +80,21 @@
     } // nav controll
     // ========================== Scroll Spy ==========================    
     function scrollSpy() {
-        var scrollLink = $('#cd-navbar .nav-link');
-        var space = 80;
+
+
+        var scrollLink = $('#slick_menu li a');
+        var space = $('.fixed-header').outerHeight();
         var topPos = $(window).scrollTop();
+
+        console.log(space);
+
 
         scrollLink.each(function () {
             var section = $(this.hash);
 
             // This Line Immportant for Console Error
             if (section.length) {
-                var secPos = section.offset().top - space;
+                var secPos = section.offset().top - (space + 5);
             }
             // Add Active Class
             if (secPos <= topPos) {
@@ -102,14 +107,13 @@
     function stickyNav() {
         // Scroll on Fixed position Height
         var posTop = $(window).scrollTop();
-        var nav = $('.navbar.fixed-top');
+        var nav = $('.fixed-header');
 
         if (posTop >= 100) {
             nav.addClass('sticky-nav');
         } else {
             nav.removeClass('sticky-nav');
         }
-
     } // Sticky nav
 
     // =================== mobileMenu ===================
@@ -140,7 +144,7 @@
             dots: true,
             items: 1,
             mouseDrag: false,
-            animateOut: 'fadeOutDown',
+            animateOut: 'fadeOutUp',
             animateIn: 'fadeInUp',
             onTranslate: translateAnim,
             onTranslated: translatedAnim
