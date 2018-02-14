@@ -605,9 +605,6 @@ textarea:focus {
     padding: 20px;
     font-weight: 500;
     text-transform: uppercase; }
-    #slick_menu li a:hover {
-      -webkit-transform: scale(1.1);
-              transform: scale(1.1); }
   #slick_menu li.active a {
     color: #02d871;
     font-weight: 600; }
@@ -629,7 +626,8 @@ textarea:focus {
     color: #fff;
     padding: 10px 0; }
     .slicknav_nav li a:hover {
-      background: #018c49; }
+      background: #018c49;
+      color: #fff; }
 
 .slicknav_menu .slicknav_icon-bar {
   width: 2.125em; }
@@ -1004,7 +1002,7 @@ textarea:focus {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  right: calc(100% + 38%);
+  right: calc(100% + 35%);
   top: 60%; }
   .blog-slider .owl-nav > div {
     width: 33px;
@@ -1019,12 +1017,28 @@ textarea:focus {
       background: #02d871;
       color: #fff; }
 
+/* Responsive Blog Slider */
+@media screen and (max-width: 767px) {
+  .blog-slider .owl-nav {
+    position: unset;
+    margin: 0px auto 50px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; } }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .blog-slider .owl-nav {
+    position: unset;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; } }
 /* Responsive Our Blog */
 @media screen and (max-width: 767px) {
   .cd-blogs {
     padding: 0; }
     .cd-blogs .sec-title {
       margin-bottom: 30px; }
+    .cd-blogs .overview-text {
+      padding-bottom: 30px; }
     .cd-blogs .update-news h2 {
       font-size: 10vw; } }
 /*======================================================

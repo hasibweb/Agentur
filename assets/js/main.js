@@ -21,6 +21,7 @@
         preloaderSetup();
         heroSlider();
         scrollAnimation();
+        navbarControll();
     });
 
     // Document Ready Function
@@ -49,46 +50,47 @@
         });
     } // preloaderSetup
 
+
     // ========================== Navbar Controll ==========================   
     function navbarControll() {
         // One page Nav
         var scrollLink = $('#slick_menu li a');
+        var slickLink = $('.slicknav_nav li a');
         var heroBtn = $('.hero-btn.hash');
         var space = $('.fixed-header').outerHeight();
-
+        // Scroll Animation Function
         function scrollAnim(link, dur) {
             $('html, body').animate({
                 scrollTop: $(link.hash).offset().top - space
             }, dur, "easeOutCirc")
         }
-
+        // Nav link Click
         scrollLink.on('click', function (event) {
             event.preventDefault();
             $(this).parent('li').addClass('active').siblings().removeClass('active');
             scrollAnim(this, 1010);
-
+        })
+        // Slick link Click
+        slickLink.on('click', function (event) {
+            event.preventDefault();
+            $(this).parent('li').addClass('active').siblings().removeClass('active');
+            scrollAnim(this, 1510);
         })
 
+        // Hero Button Click
         heroBtn.on('click', function (event) {
             event.preventDefault();
             scrollAnim(this, 1100);
         })
 
-        scrollLink.on('click', function () {
-            $('#cd-navbar').toggleClass('menu-hide');
-        })
-
     } // nav controll
+
+
     // ========================== Scroll Spy ==========================    
     function scrollSpy() {
-
-
         var scrollLink = $('#slick_menu li a');
         var space = $('.fixed-header').outerHeight();
         var topPos = $(window).scrollTop();
-
-        console.log(space);
-
 
         scrollLink.each(function () {
             var section = $(this.hash);
@@ -205,9 +207,22 @@
             nav: true,
             navText: ['<i class = "fa fa-angle-left "></i>', '<i class = "fa fa-angle-right "></i>'],
             margin: 25,
-            items: 2,
+            items: 1,
             mouseDrag: false,
-
+            responsive: {
+                // breakpoint from 0 up
+                0: {
+                    items: 1
+                },
+                // breakpoint from 480 up
+                480: {
+                    items: 1
+                },
+                // breakpoint from 768 up
+                768: {
+                    items: 2
+                }
+            }
         })
 
     }
