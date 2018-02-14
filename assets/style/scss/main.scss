@@ -124,6 +124,7 @@ $btn-radius: 35px;
 @import url($dir + "external/animate.min.css");
 @import url($dir + "external/owl.carousel.min.css");
 @import url($dir + "external/aos.css");
+@import url($dir + "external/slicknav.min.css");
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
 // SCSS
 @import 'partials/hover/hover';
@@ -539,66 +540,54 @@ textarea:focus,
                     Header
 /*====================================================*/
 
-.cd-header {
-    .navbar {
-        .nav-item.active .nav-link {
-            color: $primary-color;
-            font-weight: 600;
-        }
-        .nav-link {
+.fixed-header {
+    background: $primary-color;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    top: 0;
+    left: 0;
+}
+
+.cd-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Slick Menu
+#slick_menu {
+    li {
+        display: inline-block;
+        a {
             color: #fff;
-            padding: 15px 22px;
-            font-weight: 500;
-            &:hover {
-                color: $primary-color;
-            }
-        }
-        &.sticky-nav {
-            height: 75px;
-            transition: .4s ease-in-out;
-            background: darken($primary-color, 12%);
-            .navbar-brand img {
-                width: 90%;
-                transition: .2s ease-in-out;
-            }
+            padding: 20px;
         }
     }
+}
+
+.slicknav_menu {
+    display: none;
+}
+
+.slicknav_nav {
+    position: absolute;
+    background: $primary-color;
+    left: 0;
+    top: 100%;
+    width: 100vw;
+    text-align: center;
 }
 
 /* Responsive Header */
 
 @include media('small') {
-    .navbar-brand {
-        width: 70%;
-        margin-top: 10px;
+    #slick_menu {
+        display: none;
     }
-    .navbar-collapse {
-        position: relative;
-        &.menu-hide {
-            .navbar-nav {}
-        }
-        .navbar-nav {
-            position: absolute;
-            width: 100%;
-            top: 100%;
-            left: 0;
-            text-align: center;
-            background: $primary-color;
-        }
-        .nav-item {
-            .nav-link {
-                color: #fff;
-                &:hover {
-                    color: darken($primary-color, 10%);
-                }
-            }
-            &:not(:last-child) .nav-link {
-                border-bottom: 1px solid $gray;
-            }
-            &.active .nav-link {
-                color: darken($primary-color, 10%) !important;
-            }
-        }
+    .slicknav_menu {
+        display: inline-block;
     }
 }
 

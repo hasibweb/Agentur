@@ -21,6 +21,7 @@
 @import url("../css/external/animate.min.css");
 @import url("../css/external/owl.carousel.min.css");
 @import url("../css/external/aos.css");
+@import url("../css/external/slicknav.min.css");
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
 /*======================================================
                     Hover Efffects
@@ -574,48 +575,50 @@ textarea:focus {
 /*======================================================
                     Header
 /*====================================================*/
-.cd-header .navbar .nav-item.active .nav-link {
-  color: #02d871;
-  font-weight: 600; }
-.cd-header .navbar .nav-link {
-  color: #fff;
-  padding: 15px 22px;
-  font-weight: 500; }
-  .cd-header .navbar .nav-link:hover {
-    color: #02d871; }
-.cd-header .navbar.sticky-nav {
-  height: 75px;
-  -webkit-transition: .4s ease-in-out;
-  transition: .4s ease-in-out;
-  background: #019b51; }
-  .cd-header .navbar.sticky-nav .navbar-brand img {
-    width: 90%;
-    -webkit-transition: .2s ease-in-out;
-    transition: .2s ease-in-out; }
+.fixed-header {
+  background: #02d871;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  left: 0; }
+
+.cd-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+#slick_menu li {
+  display: inline-block; }
+  #slick_menu li a {
+    color: #fff;
+    padding: 20px; }
+
+.slicknav_menu {
+  display: none; }
+
+.slicknav_nav {
+  position: absolute;
+  background: #02d871;
+  left: 0;
+  top: 100%;
+  width: 100vw;
+  text-align: center; }
 
 /* Responsive Header */
 @media screen and (max-width: 767px) {
-  .navbar-brand {
-    width: 70%;
-    margin-top: 10px; }
+  #slick_menu {
+    display: none; }
 
-  .navbar-collapse {
-    position: relative; }
-    .navbar-collapse .navbar-nav {
-      position: absolute;
-      width: 100%;
-      top: 100%;
-      left: 0;
-      text-align: center;
-      background: #02d871; }
-    .navbar-collapse .nav-item .nav-link {
-      color: #fff; }
-      .navbar-collapse .nav-item .nav-link:hover {
-        color: #02a557; }
-    .navbar-collapse .nav-item:not(:last-child) .nav-link {
-      border-bottom: 1px solid #ebeef0; }
-    .navbar-collapse .nav-item.active .nav-link {
-      color: #02a557 !important; } }
+  .slicknav_menu {
+    display: inline-block; } }
 /*======================================================
                     Hero
 /*====================================================*/

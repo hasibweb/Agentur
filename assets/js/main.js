@@ -51,7 +51,7 @@
     // ========================== Navbar Controll ==========================   
     function navbarControll() {
         // One page Nav
-        var scrollLink = $('#cd-navbar .nav-link');
+        var scrollLink = $('#slick_menu li a');
         var heroBtn = $('.hero-btn.hash');
         var space = 75;
 
@@ -114,9 +114,17 @@
 
     // =================== mobileMenu ===================
     function mobileMenu() {
-        $('.m-menu-btn').on('click', function () {
-            $(this).children().toggleClass('active');
-        })
+        // $('.m-menu-btn').on('click', function () {
+        //     $(this).children().toggleClass('active');
+        // })
+
+        $('#slick_menu').slicknav({
+            appendTo: '.cd-nav',
+            label: '',
+            closeOnClick: true
+        });
+
+
     }
 
     // ========================== Hero Slider ==========================
