@@ -737,7 +737,8 @@ textarea:focus {
                     Services
 /*====================================================*/
 .cd-services {
-  padding: 100px 0; }
+  padding: 100px 0;
+  overflow: hidden; }
   .cd-services .col-block {
     padding: 50px; }
     .cd-services .col-block.active {
